@@ -1,0 +1,32 @@
+<h1>Contact Inquiries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Description</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>E-mail Address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inquiries.each do |inquiry| %>
+      <tr>
+        <td><%= inquiry.subject %></td>
+        <td><%= inquiry.description %></td>
+        <td><%= inquiry.first_name %></td>
+        <td><%= inquiry.last_name %></td>
+        <td><%= inquiry.email_address %></td>
+        <td><%= link_to 'Show', inquiry %></td>
+        <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
+        <td><%= link_to 'Remove', inquiry, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inquiry', new_inquiry_path %>
